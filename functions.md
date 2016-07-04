@@ -8,7 +8,7 @@ defmodule App do
   def hello() do
     "Hello, World"
   end
-  
+
   def hello(name) do
     "Hello, #{name}"
   end
@@ -30,5 +30,7 @@ export default {
   hello
 }
  ```
- 
-`def` functions are exported while `defp` functions are not.
+
+`Patterns.defmatch` is the underlying JavaScript function that converts the above function heads into a JavaScript function that can be called.
+
+You will notice that our function, `hello` is being exported. All `def` functions defined are exported while `defp` functions are not.

@@ -1,6 +1,6 @@
 # Input
 
-Create a file named `app.exjs`, add the following and then save it:
+Create a file named `app.exjs`, add the following and save it:
 
 ```elixir
 defmodule App do

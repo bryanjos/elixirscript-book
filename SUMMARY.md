@@ -11,10 +11,6 @@
 * [Chapter 4: Pattern Matching](pattern_matching.md)
 * [Chapter 5: Protocols](protocols.md)
 * [Chapter 6: Macros](macros.md)
-* Chapter 7: Processes
-* Chapter 8: JavaScript Interop
-   * JS Module
-   * Working with JavaScript Modules
+* [Chapter 7: JavaScript Interop](javascript_interop.md)
 * [Appendix](appendix.md)
    * [Using with Phoenix](using_with_phoenix.md)
-   * [Using with Webpack](using_with_webpack.md)

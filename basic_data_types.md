@@ -6,8 +6,9 @@ Below is a chart showing how each data type maps to JavaScript.
 | -- | -- |
 | 1 | 1 |
 | 1.123 | 1.123 |
-| "Hello" | "Hello" |
+| "Hello" | 'Hello' |
 | 'Hello' | 'Hello' |
+| "Hello #{world}" | 'Hello ' + world |
 | """multiline string""" | "multiline\nstring" |
 | true | true |
 | :atom | Symbol.for("atom") |

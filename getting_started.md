@@ -14,7 +14,7 @@ Elixirscript requires [Elixir](http://elixir-lang.org/). Please follow the instr
 
 ### Homebrew
 
-If on macOS(OSX), Elixirscript can be installed via [homebrew](http://brew.sh/):
+If on macOS (OSX), Elixirscript can be installed via [homebrew](http://brew.sh/):
 
 ```bash
 brew install elixirscript

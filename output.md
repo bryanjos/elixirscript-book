@@ -6,7 +6,7 @@ Now that we have our first elixirscript file saved, let's compile it. Run the fo
 elixirscript . -o dist
 ```
 
-This will find all `.exjs` files in the current directory, compile them to JavaScript files, and place them in the `dist` directory. When you look at this directory, you will see something like this:
+This will find all `.exjs` files in the current directory, compile them to JavaScript files, and place them in the `dist` directory. When you look inside of `dist`, you will see something like this:
 
 ```bash
 ├── Elixir.App.js
