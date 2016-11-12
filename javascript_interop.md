@@ -1,15 +1,10 @@
 # Chapter 7: JavaScript Interop
 
+Elixirscript code can interact with JavaScript in a number of ways.
 
-Elixirscript, as of today, has a simple JavaScript interop story. **You should be able to interact with any JavaScript functions and data types without any impedance**.
+## Importing ES Modules
 
-Elixirscript does have an additional module for working with JavaScript, the `JS` module.
-
-The `JS` module has macros for JavaScript functionality that may be useful, but fits outside of Elixirscript's focus on trying to be as close to idiomatic Elixir as possible.
-
-More information and documentation on the JS module can be found [here](https://hexdocs.pm/elixir_script/ElixirScript.JS.html)
-
-From this module, the macro that you will probably use the most is `import`. `JS.import` is how Elixirscript can import ES Modules. Let's take a small example. Assume we have a module and we want to import Ramda.
+First is importing JavaScript ES Modules. To import an ES module for use within your module, use `JS.import`. In our example, we will import Ramda.
 
 ```elixir
 defmodule MyModule do
@@ -21,8 +16,55 @@ defmodule MyModule do
 end
 ```
 
-`JS.import` translates into an ES module `import` statement. The first argument to `JS.import` is the alias you want the import module to have. In our example, we import Ramda as `R`. The second argument is the path to the module. It translates into something like this:
+`JS.import` takes 2 parameters. The first one is either an Atom or a list of Atoms. The second is the import path or name of the ES module to import. When a single Atom is used for the first parameter, the expression is compiled into a default import statement in JavaScript
 
 ```JavaScript
 import R from "ramda"
+```
+
+If a list of Atoms are used:
+
+```elixir
+JS.import [add, map, reduce], "ramda"
+```
+
+Then it is transformed into the following import statement:
+
+```JavaScript
+import {add, map, reduce} from "ramda"
+```
+
+Going back to our very first example, notice that calling functions on an imported module is done in the very same way one would call any Elixir function.
+
+## Global functions
+
+In order to call functions in the global scope, you can either use `JS.global\1` to get a reference to the global object or get the global object, such as window, using the Erlang module syntax
+
+Let's take an example of calling `alert`
+
+
+```Elixir
+#This
+JS.global().alert("Hi")
+
+# is equivalent to
+:window.alert("Hi")
+```
+
+## Calling Elixirscript code in JavaScript
+
+To call Elixirsscript code in JavaScript is as simple as importing the module in your JavaScript module and calling the functions.
+
+```elixir
+defmodule MyModule do
+
+    def add(left, right) do
+        left + right
+    end
+end
+```
+
+```JavaScript
+import MyModule from 'path/to/compiled/elixirscript/module/app/Elixir.MyModule'
+MyModule.add(2, 3)
 ```

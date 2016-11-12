@@ -5,7 +5,7 @@
      defp deps do
     [
      #other deps
-     {:elixir_script, "~> 0.21.0"}
+     {:elixir_script, "~> 0.22.0"}
      ]
   end
   ```
